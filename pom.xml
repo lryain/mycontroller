@@ -191,10 +191,10 @@
       <artifactId>moquette-broker</artifactId>
     </dependency>
 
-    <dependency>
+    <!--dependency>
       <groupId>io.moquette</groupId>
       <artifactId>moquette-mapdb-storage</artifactId>
-    </dependency>
+    </dependency-->
 
     <!-- Apache HttpComponents -->
     <dependency>
@@ -301,14 +301,21 @@
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
           <configuration>
+          <basedir>${basedir}</basedir>
             <excludes combine.children="append">
               <!-- Ignore locale properties file -->
               <exclude>**/mc_locale/**</exclude>
               <!-- Ignore lombok config files -->
               <exclude>**/lombok.config</exclude>
+              <exclude>*.xml</exclude>
+              <exclude>**/.checkstyle</exclude>
               <!-- Ignore resources files -->
               <exclude>**/package/conf/resources/**</exclude>
             </excludes>
+<useDefaultExcludes>true</useDefaultExcludes>
+<useDefaultMapping>true</useDefaultMapping>
+<encoding>UTF-8</encoding>
+<strictCheck>false</strictCheck>
           </configuration>
         </plugin>
       </plugins>
